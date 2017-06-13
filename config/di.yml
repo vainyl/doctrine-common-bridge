@@ -1,0 +1,14 @@
+services:
+  doctrine.cache.apcu:
+    class: Vainyl\Doctrine\Common\Cache\DoctrineApcuCache
+  doctrine.cache.memory:
+    class: Doctrine\Common\Cache\ArrayCache
+#  doctrine.cache.redis:
+#    class: Vainyl\Doctrine\Common\Cache\DoctrineRedisCache
+#    arguments: ['@redis.database']
+  doctrine.connection.factory:
+    class: Vainyl\Doctrine\Common\Factory\DoctrineConnectionFactory
+    arguments: ['@connection'];
+  doctrine.event.manager:
+    class: Vainyl\Doctrine\ORM\DoctrineEventManager
+    arguments: ['@time.factory']

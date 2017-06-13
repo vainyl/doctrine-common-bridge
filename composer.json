@@ -1,0 +1,34 @@
+{
+    "name": "vainyl/doctrine-common-bridge",
+    "type": "shared-package",
+    "authors": [
+        {
+            "name": "Taras Girnyk",
+            "email": "taras.p.gyrnik@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vainyl\\Doctrine\\Common\\": "src/"
+        }
+    },
+    "require": {
+        "doctrine/common": "^2",
+        "doctrine/dbal": "^2",
+        "doctrine/cache": "^1",
+        "vainyl/core": "dev-master",
+        "vainyl/connection": "dev-master",
+        "vainyl/database": "dev-master",
+        "vainyl/event": "dev-master",
+        "vainyl/redis": "dev-master",
+        "vainyl/time": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.vainyl.com:444"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
