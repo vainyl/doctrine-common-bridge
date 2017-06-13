@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Factory;
 
 use Vainyl\Connection\ConnectionInterface;
-use Vainyl\Connection\Storage\ConnectionStorage;
 use Vainyl\Core\AbstractIdentifiable;
+use Vainyl\Core\Storage\StorageInterface;
 use Vainyl\Doctrine\Common\Database\DoctrineMysqlConnection;
 use Vainyl\Doctrine\Common\Database\DoctrinePostgresqlConnection;
 use Vainyl\Doctrine\Common\Exception\UnknownDoctrineDriverTypeException;
@@ -31,9 +31,9 @@ class DoctrineConnectionFactory extends AbstractIdentifiable
     /**
      * DoctrineConnectionFactory constructor.
      *
-     * @param ConnectionStorage $connectionStorage
+     * @param StorageInterface $connectionStorage
      */
-    public function __construct(ConnectionStorage $connectionStorage)
+    public function __construct(StorageInterface $connectionStorage)
     {
         $this->connectionStorage = $connectionStorage;
     }
@@ -54,10 +54,10 @@ class DoctrineConnectionFactory extends AbstractIdentifiable
         $type = 'pgsql';
         switch ($type) {
             case 'pgsql':
-                return new DoctrinePostgresqlConnection($this->connectionStorage->getConnection($connectionName));
+                return new DoctrinePostgresqlConnection($this->connectionStorage[$connectionName]);
                 break;
             case 'mysql':
-                return new DoctrineMysqlConnection($this->connectionStorage->getConnection($connectionName));
+                return new DoctrineMysqlConnection($this->connectionStorage[$connectionName]);
                 break;
             default:
                 throw new UnknownDoctrineDriverTypeException($this, $type);

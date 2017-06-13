@@ -29,18 +29,18 @@ class DoctrineDatabase extends Connection implements MvccDatabaseInterface
     /**
      * DoctrineDatabase constructor.
      *
-     * @param \ArrayAccess  $params
+     * @param array         $configData
      * @param Configuration $config
      * @param Driver        $driver
      * @param EventManager  $eventManager
      */
     public function __construct(
-        \ArrayAccess $params,
+        array $configData,
         Configuration $config,
         Driver $driver,
         EventManager $eventManager
     ) {
-        parent::__construct($params['databases']['mvcc'], $driver, $config, $eventManager);
+        parent::__construct($configData, $driver, $config, $eventManager);
     }
 
     /**
