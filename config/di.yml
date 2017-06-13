@@ -13,4 +13,4 @@ services:
     class: Doctrine\Common\EventManager
   database.factory.doctrine:
     class: Vainyl\Doctrine\Common\Factory\DoctrineDatabaseFactory
-    arguments: ['@connection.storage', '@doctrine.configuration.orm', '@doctrine.event.manager']
+    arguments: ['@app.config', '@connection.storage']
