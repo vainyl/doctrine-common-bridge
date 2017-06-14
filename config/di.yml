@@ -6,11 +6,5 @@ services:
 #  doctrine.cache.redis:
 #    class: Vainyl\Doctrine\Common\Cache\DoctrineRedisCache
 #    arguments: ['@redis.database']
-  connection.factory.doctrine:
-    class: Vainyl\Doctrine\Common\Factory\DoctrineConnectionFactory
-    arguments: ['@connection.storage']
   doctrine.event.manager:
     class: Doctrine\Common\EventManager
-  database.factory.doctrine:
-    class: Vainyl\Doctrine\Common\Factory\DoctrineDatabaseFactory
-    arguments: ['@app.config', '@connection.storage']
