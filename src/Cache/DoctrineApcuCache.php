@@ -43,7 +43,7 @@ class DoctrineApcuCache extends DoctrineCacheProvider
      */
     protected function doSave($id, $data, $lifeTime = 0)
     {
-        return apcu_store($id, $data, $lifeTime);
+        return apcu_store($id, $data, (int)$lifeTime);
     }
 
     /**
