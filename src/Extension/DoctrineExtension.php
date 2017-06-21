@@ -33,7 +33,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
         $configuration = new DoctrineConfiguration();
         $doctrineConfig = $this->processConfiguration($configuration, $configs);
 
-        $container->setAlias('doctrine.cache.' . $doctrineConfig['cache'], 'doctrine.cache');
+        $container->setAlias('doctrine.cache', 'doctrine.cache.' . $doctrineConfig['cache']);
 
         return $this;
     }
