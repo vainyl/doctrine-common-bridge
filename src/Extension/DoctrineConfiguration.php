@@ -31,11 +31,9 @@ class DoctrineConfiguration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('doctrine');
 
         $rootNode
-            ->useAttributeAsKey('name')
-                ->children()
-                    ->scalarNode('cache')->defaultValue('apcu')->end()
-                ->end()
-            ->prototype('variable')->end();
+            ->children()
+                ->scalarNode('cache')->defaultValue('apcu')->end()
+            ->end();
 
         return $treeBuilder;
     }
