@@ -35,7 +35,16 @@ class DoctrineConnectionCompilerPass implements CompilerPassInterface
 
         $registryDefinition = $container->getDefinition('doctrine.registry');
         $connections = [];
-        foreach ($container->findTaggedServiceIds('doctrine.connection') as $id => $tags) {
+        foreach ($container->findTaggedServiceIds('connection.doctrine.orm') as $id => $tags) {
+            foreach ($tags as $attributes) {
+                if (false === array_key_exists('alias', $attributes)) {
+                    throw new MissingRequiredFieldException($container, $id, $attributes, 'alias');
+                }
+
+                $connections[$attributes['alias']] = $id;
+            }
+        }
+        foreach ($container->findTaggedServiceIds('connection.doctrine.odm') as $id => $tags) {
             foreach ($tags as $attributes) {
                 if (false === array_key_exists('alias', $attributes)) {
                     throw new MissingRequiredFieldException($container, $id, $attributes, 'alias');
