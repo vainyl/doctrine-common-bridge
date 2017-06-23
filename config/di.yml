@@ -6,9 +6,8 @@ services:
 #  doctrine.cache.redis:
 #    class: Vainyl\Doctrine\Common\Cache\DoctrineRedisCache
 #    arguments: ['@redis.database']
-  doctrine.connection.factory:
-    class: Vainyl\Doctrine\Common\Factory\DoctrineConnectionFactory
-    arguments: ['@connection'];
   doctrine.event.manager:
-    class: Vainyl\Doctrine\ORM\DoctrineEventManager
-    arguments: ['@time.factory']
+    class: Doctrine\Common\EventManager
+  doctrine.registry:
+    class: Vainyl\Doctrine\Common\Registry\DoctrineRegistry
+    arguments: ['@app.di', [], []]
