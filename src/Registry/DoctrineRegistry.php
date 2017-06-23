@@ -28,8 +28,10 @@ class DoctrineRegistry extends AbstractManagerRegistry
      * DoctrineRegistry constructor.
      *
      * @param ContainerInterface $container
+     * @param array              $connections
+     * @param array              $managers
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container, array $connections = [], array $managers = [])
     {
         $this->container = $container;
         parent::__construct('registry', [], [], null, null, '');

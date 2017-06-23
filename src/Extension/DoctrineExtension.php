@@ -26,6 +26,14 @@ class DoctrineExtension extends AbstractFrameworkExtension
     /**
      * @inheritDoc
      */
+    public function getCompilerPasses(): array
+    {
+        return [new DoctrineConnectionCompilerPass(), new DoctrineManagerCompilerPass()];
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function load(array $configs, ContainerBuilder $container): AbstractExtension
     {
         parent::load($configs, $container);
