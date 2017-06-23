@@ -42,7 +42,7 @@ class DoctrineRegistry extends AbstractManagerRegistry
      */
     protected function getService($name)
     {
-        return $this->container->get(sprintf('doctrine.%s.manager', $name));
+        return $this->container->get($name);
     }
 
     /**
