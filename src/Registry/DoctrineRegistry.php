@@ -34,7 +34,7 @@ class DoctrineRegistry extends AbstractManagerRegistry
     public function __construct(ContainerInterface $container, array $connections = [], array $managers = [])
     {
         $this->container = $container;
-        parent::__construct('registry', [], [], null, null, '');
+        parent::__construct('registry', $connections, $managers, null, null, '');
     }
 
     /**
