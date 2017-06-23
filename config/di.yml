@@ -8,3 +8,6 @@ services:
 #    arguments: ['@redis.database']
   doctrine.event.manager:
     class: Doctrine\Common\EventManager
+  doctrine.registry:
+    class: Vainyl\Doctrine\Common\Registry\DoctrineRegistry
+    arguments: ['@app.di']
