@@ -14,14 +14,23 @@ namespace Vainyl\Doctrine\Common;
 
 use Doctrine\Common\Collections\Collection;
 use Vainyl\Core\ArrayInterface;
+use Vainyl\Core\NameableInterface;
 
 /**
  * Class AbstractDoctrineDomain
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-abstract class AbstractDoctrineDomain implements ArrayInterface
+abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface
 {
+    /**
+     * @inheritDoc
+     */
+    public function getName(): string
+    {
+        return (new \ReflectionClass($this))->getShortName();
+    }
+
     /**
      * @inheritDoc
      */
