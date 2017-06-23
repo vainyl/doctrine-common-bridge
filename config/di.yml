@@ -10,4 +10,4 @@ services:
     class: Doctrine\Common\EventManager
   doctrine.registry:
     class: Vainyl\Doctrine\Common\Registry\DoctrineRegistry
-    arguments: ['@app.di']
+    arguments: ['@app.di', [], []]
