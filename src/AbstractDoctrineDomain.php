@@ -21,7 +21,7 @@ use Vainyl\Core\NameableInterface;
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface, \JsonSerializable
+abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface
 {
     /**
      * @inheritDoc
