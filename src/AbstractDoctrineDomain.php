@@ -21,7 +21,7 @@ use Vainyl\Core\NameableInterface;
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface
+abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface, \JsonSerializable
 {
     /**
      * @inheritDoc
@@ -29,6 +29,14 @@ abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterfa
     public function getName(): string
     {
         return (new \ReflectionClass($this))->getShortName();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 
     /**
