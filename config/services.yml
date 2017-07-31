@@ -1,7 +1,7 @@
 services:
   doctrine.settings:
     class: Vainyl\Doctrine\Common\DoctrineSettings
-     arguments: ['@doctrine.cache.memory', []]
+    arguments: ['@doctrine.cache.memory', []]
   doctrine.cache.apcu:
     class: Vainyl\Doctrine\Common\Cache\DoctrineApcuCache
   doctrine.cache.memory:
