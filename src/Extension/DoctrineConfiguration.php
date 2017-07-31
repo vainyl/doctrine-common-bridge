@@ -33,6 +33,14 @@ class DoctrineConfiguration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('cache')->defaultValue('apcu')->end()
+                ->arrayNode('paths')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('dir')->end()
+                            ->scalarNode('prefix')->end()
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
