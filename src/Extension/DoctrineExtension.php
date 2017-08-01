@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Extension;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Vainyl\Core\Exception\MissingRequiredServiceException;
 use Vainyl\Core\Extension\AbstractExtension;
 use Vainyl\Core\Extension\AbstractFrameworkExtension;
 
@@ -38,10 +39,17 @@ class DoctrineExtension extends AbstractFrameworkExtension
     {
         parent::load($configs, $container);
 
+        if (false === $container->hasDefinition('doctrine.settings')) {
+            throw new MissingRequiredServiceException($container, 'doctrine.settings');
+        }
+
         $configuration = new DoctrineConfiguration();
         $doctrineConfig = $this->processConfiguration($configuration, $configs);
 
         $container->setAlias('doctrine.cache', 'doctrine.cache.' . $doctrineConfig['cache']);
+
+        $container->findDefinition('doctrine.settings')
+                  ->replaceArgument(1, $doctrineConfig['paths']);
 
         return $this;
     }

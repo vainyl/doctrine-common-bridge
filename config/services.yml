@@ -1,4 +1,7 @@
 services:
+  doctrine.settings:
+    class: Vainyl\Doctrine\Common\DoctrineSettings
+    arguments: ['@doctrine.cache.memory', []]
   doctrine.cache.apcu:
     class: Vainyl\Doctrine\Common\Cache\DoctrineApcuCache
   doctrine.cache.memory:
@@ -6,6 +9,7 @@ services:
 #  doctrine.cache.redis:
 #    class: Vainyl\Doctrine\Common\Cache\DoctrineRedisCache
 #    arguments: ['@redis.database']
+  doctrine.cache: '@doctrine.cache.memory'
   doctrine.event.manager:
     class: Doctrine\Common\EventManager
   doctrine.registry:

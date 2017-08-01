@@ -13,15 +13,16 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common;
 
 use Doctrine\Common\Collections\Collection;
+use Vainyl\Core\AbstractArray;
 use Vainyl\Core\ArrayInterface;
-use Vainyl\Core\NameableInterface;
+use Vainyl\Domain\DomainInterface;
 
 /**
  * Class AbstractDoctrineDomain
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-abstract class AbstractDoctrineDomain implements ArrayInterface, NameableInterface
+abstract class AbstractDoctrineDomain extends AbstractArray implements DomainInterface
 {
     /**
      * @inheritDoc
