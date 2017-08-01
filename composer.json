@@ -17,10 +17,10 @@
         "doctrine/common": "^2",
         "doctrine/dbal": "^2",
         "doctrine/cache": "^1",
-        "vainyl/core": "dev-master",
-        "vainyl/domain": "dev-master",
-        "vainyl/redis": "dev-master",
-        "vainyl/time": "dev-master"
+        "vainyl/core": "0.1.x-dev",
+        "vainyl/domain": "0.1.x-dev",
+        "vainyl/redis": "0.1.x-dev",
+        "vainyl/time": "0.1.x-dev"
     },
     "repositories": [
         {
