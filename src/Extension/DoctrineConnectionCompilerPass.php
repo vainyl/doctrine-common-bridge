@@ -12,17 +12,17 @@ declare(strict_types=1);
 
 namespace Vainyl\Doctrine\Common\Extension;
 
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Vainyl\Core\Exception\MissingRequiredFieldException;
 use Vainyl\Core\Exception\MissingRequiredServiceException;
+use Vainyl\Core\Extension\AbstractCompilerPass;
 
 /**
  * Class DoctrineConnectionCompilerPass
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-class DoctrineConnectionCompilerPass implements CompilerPassInterface
+class DoctrineConnectionCompilerPass extends AbstractCompilerPass
 {
     /**
      * @inheritDoc

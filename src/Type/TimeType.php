@@ -8,7 +8,7 @@
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://github.com/allflame/vain-doctrine
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Vainyl\Doctrine\Common\Type;
 
@@ -25,7 +25,6 @@ use Vainyl\Time\TimeInterface;
  */
 class TimeType extends Type
 {
-
     private $timeFactory;
 
     /**
