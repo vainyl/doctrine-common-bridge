@@ -51,7 +51,7 @@ class DoctrineApcuCache extends DoctrineCacheProvider
      */
     protected function doDelete($id)
     {
-        return apcu_delete($id) || ! apcu_exists($id);
+        return apcu_delete($id) || !apcu_exists($id);
     }
 
     /**
@@ -70,11 +70,11 @@ class DoctrineApcuCache extends DoctrineCacheProvider
         $info = apcu_sma_info();
 
         return [
-            Cache::STATS_HITS   => $info['keyspace_hits'],
-            Cache::STATS_MISSES => $info['keyspace_misses'],
-            Cache::STATS_UPTIME => $info['uptime_in_seconds'],
-            Cache::STATS_MEMORY_USAGE      => $info['used_memory'],
-            Cache::STATS_MEMORY_AVAILABLE  => false
+            Cache::STATS_HITS             => $info['keyspace_hits'],
+            Cache::STATS_MISSES           => $info['keyspace_misses'],
+            Cache::STATS_UPTIME           => $info['uptime_in_seconds'],
+            Cache::STATS_MEMORY_USAGE     => $info['used_memory'],
+            Cache::STATS_MEMORY_AVAILABLE => false,
         ];
     }
 }
