@@ -12,18 +12,29 @@ declare(strict_types=1);
 
 namespace Vainyl\Doctrine\Common;
 
-use Doctrine\Common\Collections\Collection;
-use Vainyl\Core\AbstractArray;
-use Vainyl\Core\ArrayInterface;
+use Vainyl\Core\AbstractIdentifiable;
 use Vainyl\Domain\DomainInterface;
+use Vainyl\Time\TimeInterface;
 
 /**
  * Class AbstractDoctrineDomain
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-abstract class AbstractDoctrineDomain extends AbstractArray implements DomainInterface
+abstract class AbstractDoctrineDomain extends AbstractIdentifiable implements DomainInterface
 {
+    protected $createdAt;
+
+    protected $updatedAt;
+
+    /**
+     * @inheritDoc
+     */
+    public function createdAt(): TimeInterface
+    {
+        return $this->createdAt;
+    }
+
     /**
      * @inheritDoc
      */
@@ -35,27 +46,28 @@ abstract class AbstractDoctrineDomain extends AbstractArray implements DomainInt
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function setCreatedAt(TimeInterface $time): DomainInterface
     {
-        $array = [];
-        foreach (get_object_vars($this) as $field => $value) {
-            switch (true) {
-                case (false === is_object($value)):
-                    $array[$field] = $value;
-                    break;
-                case ($value instanceof ArrayInterface):
-                    $array[$field] = $value->toArray();
-                    break;
-                case ($value instanceof Collection):
-                    /**
-                     * @var ArrayInterface $item
-                     */
-                    foreach ($value->toArray() as $item) {
-                        $array[$field][] = $item->toArray();
-                    }
-            }
-        }
+        $this->createdAt = $time;
 
-        return $array;
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setUpdatedAt(TimeInterface $time): DomainInterface
+    {
+        $this->updatedAt = $time;
+
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function updatedAt(): TimeInterface
+    {
+        return $this->updatedAt;
     }
 }
