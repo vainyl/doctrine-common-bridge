@@ -23,13 +23,24 @@ use Vainyl\Doctrine\Common\DoctrineSettings;
  */
 class DoctrineMappingPathProvider extends AbstractIdentifiable
 {
+    private $bundleStorage;
+
+    /**
+     * DoctrineMappingPathProvider constructor.
+     *
+     * @param \Traversable $bundleStorage
+     */
+    public function __construct(\Traversable $bundleStorage)
+    {
+        $this->bundleStorage = $bundleStorage;
+    }
+
     /**
      * @param DoctrineSettings $settings
-     * @param \Traversable     $bundleStorage
      *
      * @return array
      */
-    public function getPaths(DoctrineSettings $settings, \Traversable $bundleStorage): array
+    public function getPaths(DoctrineSettings $settings): array
     {
         $paths = [];
         foreach ($settings->getExtraPaths() as $extraPath) {
@@ -41,7 +52,7 @@ class DoctrineMappingPathProvider extends AbstractIdentifiable
         /**
          * @var ExtensionInterface $bundle
          */
-        foreach ($bundleStorage as $bundle) {
+        foreach ($this->bundleStorage as $bundle) {
             $configDirectory = $bundle->getConfigDirectory();
             if (false === is_dir($configDirectory)) {
                 continue;

@@ -17,6 +17,7 @@ services:
     arguments: ['@app.di', [], []]
   doctrine.mapping.path.provider:
     class: Vainyl\Doctrine\Common\Driver\Provider\DoctrineMappingPathProvider
+    arguments: ['@bundle.storage']
   doctrine.mapping.driver.domain:
     decorates: doctrine.mapping.driver
     class: Vainyl\Doctrine\Common\Driver\Decorator\AliasMappingFileDriverDecorator
