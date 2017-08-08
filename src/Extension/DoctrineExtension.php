@@ -32,7 +32,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
         return [
             new DoctrineConnectionCompilerPass(),
             new DoctrineManagerCompilerPass(),
-            new DoctrineDecoratorCompilerPass(),
+            new DoctrineMappingDriverDecoratorCompilerPass(),
         ];
     }
 

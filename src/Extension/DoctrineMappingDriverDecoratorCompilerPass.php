@@ -16,18 +16,18 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Class DoctrineDecoratorCompilerPass
+ * Class DoctrineMappingDriverDecoratorCompilerPass
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-class DoctrineDecoratorCompilerPass implements CompilerPassInterface
+class DoctrineMappingDriverDecoratorCompilerPass implements CompilerPassInterface
 {
     /**
      * @inheritDoc
      */
     public function process(ContainerBuilder $container)
     {
-        foreach ($container->findTaggedServiceIds('driver.decorator') as $id => $tags) {
+        foreach ($container->findTaggedServiceIds('mapping.driver.decorator') as $id => $tags) {
             $container->removeDefinition($id);
         }
     }

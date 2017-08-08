@@ -22,3 +22,5 @@ services:
     decorates: doctrine.mapping.driver
     class: Vainyl\Doctrine\Common\Driver\Decorator\DomainMappingFileDriverDecorator
     arguments: ['@doctrine.mapping.driver.domain.inner']
+    tags:
+      - {name: mapping.driver.decorator}
