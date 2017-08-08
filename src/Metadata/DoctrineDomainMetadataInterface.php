@@ -27,4 +27,11 @@ interface DoctrineDomainMetadataInterface extends ClassMetadata
      * @return DoctrineDomainMetadataInterface
      */
     public function setAlias(string $alias): DoctrineDomainMetadataInterface;
+
+    /**
+     * @param array $scenarios
+     *
+     * @return DoctrineDomainMetadataInterface
+     */
+    public function setScenarios(array $scenarios) : DoctrineDomainMetadataInterface;
 }
