@@ -4,7 +4,7 @@
  *
  * PHP Version 7
  *
- * @package   Doctrine-common-bridge
+ * @package   Doctrine-Common-Bridge
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://vainyl.com
  */
@@ -49,7 +49,8 @@ class DoctrineExtension extends AbstractFrameworkExtension
         $container->setAlias('doctrine.cache', 'doctrine.cache.' . $doctrineConfig['cache']);
 
         $container->findDefinition('doctrine.settings')
-                  ->replaceArgument(1, $doctrineConfig['paths']);
+                  ->replaceArgument(1, $configuration['driver'])
+                  ->replaceArgument(2, $doctrineConfig['paths']);
 
         return $this;
     }

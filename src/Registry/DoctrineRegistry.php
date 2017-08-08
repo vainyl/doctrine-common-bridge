@@ -4,7 +4,7 @@
  *
  * PHP Version 7
  *
- * @package   Doctrine-common-bridge
+ * @package   Doctrine-Common-Bridge
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://vainyl.com
  */

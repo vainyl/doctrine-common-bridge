@@ -4,7 +4,7 @@
  *
  * PHP Version 7
  *
- * @package   Doctrine-orm-bridge
+ * @package   Doctrine-Common-Bridge
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://vainyl.com
  */
@@ -61,7 +61,7 @@ class DoctrineRedisCache extends DoctrineCacheProvider
     protected function doSave($id, $data, $lifeTime = 0)
     {
         if ($lifeTime > 0) {
-            return $this->redis->setEx($id, $data, $lifeTime);
+            return $this->redis->setEx($id, $lifeTime, $data);
         }
 
         return $this->redis->setNx($id, $data);
