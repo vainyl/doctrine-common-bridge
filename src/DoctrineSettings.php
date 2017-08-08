@@ -4,7 +4,7 @@
  *
  * PHP Version 7
  *
- * @package   Doctrine-common-bridge
+ * @package   Doctrine-Common-Bridge
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://vainyl.com
  */
@@ -24,17 +24,21 @@ class DoctrineSettings extends AbstractArray
 {
     private $cache;
 
+    private $driverName;
+
     private $extraPaths = [];
 
     /**
      * DoctrineSettings constructor.
      *
      * @param DoctrineCacheInterface $cache
+     * @param string                 $driverName
      * @param array                  $extraPaths
      */
-    public function __construct(DoctrineCacheInterface $cache, array $extraPaths = [])
+    public function __construct(DoctrineCacheInterface $cache, string $driverName, array $extraPaths = [])
     {
         $this->cache = $cache;
+        $this->driverName = $driverName;
         $this->extraPaths = $extraPaths;
     }
 
@@ -44,6 +48,14 @@ class DoctrineSettings extends AbstractArray
     public function getCache(): DoctrineCacheInterface
     {
         return $this->cache;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDriverName(): string
+    {
+        return $this->driverName;
     }
 
     /**

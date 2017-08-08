@@ -4,7 +4,7 @@
  *
  * PHP Version 7
  *
- * @package   Doctrine-common-bridge
+ * @package   Doctrine-Common-Bridge
  * @license   https://opensource.org/licenses/MIT MIT License
  * @link      https://vainyl.com
  */
@@ -32,15 +32,16 @@ class DoctrineConfiguration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->scalarNode('cache')->defaultValue('apcu')->end()
-            ->arrayNode('paths')
-            ->prototype('array')
-            ->children()
-            ->scalarNode('dir')->end()
-            ->scalarNode('prefix')->end()
-            ->end()
-            ->end()
-            ->end()
+                ->scalarNode('cache')->defaultValue('apcu')->end()
+                ->scalarNode('driver')->defaultValue('yaml')->end()
+                ->arrayNode('paths')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('dir')->end()
+                            ->scalarNode('prefix')->end()
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

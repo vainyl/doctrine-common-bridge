@@ -1,7 +1,7 @@
 services:
   doctrine.settings:
     class: Vainyl\Doctrine\Common\DoctrineSettings
-    arguments: ['@doctrine.cache.memory', []]
+    arguments: ['@doctrine.cache.memory', 'yaml', []]
   doctrine.cache.apcu:
     class: Vainyl\Doctrine\Common\Cache\DoctrineApcuCache
   doctrine.cache.memory:
@@ -15,3 +15,12 @@ services:
   doctrine.registry:
     class: Vainyl\Doctrine\Common\Registry\DoctrineRegistry
     arguments: ['@app.di', [], []]
+  doctrine.mapping.path.provider:
+    class: Vainyl\Doctrine\Common\Driver\Provider\DoctrineMappingPathProvider
+    arguments: ['@bundle.storage']
+  doctrine.mapping.driver.domain:
+    decorates: doctrine.mapping.driver
+    class: Vainyl\Doctrine\Common\Driver\Decorator\DomainMappingFileDriverDecorator
+    arguments: ['@doctrine.mapping.driver.domain.inner']
+    tags:
+      - {name: mapping.driver.decorator}
