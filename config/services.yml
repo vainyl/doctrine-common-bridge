@@ -20,5 +20,5 @@ services:
     arguments: ['@bundle.storage']
   doctrine.mapping.driver.domain:
     decorates: doctrine.mapping.driver
-    class: Vainyl\Doctrine\Common\Driver\Decorator\AliasMappingFileDriverDecorator
+    class: Vainyl\Doctrine\Common\Driver\Decorator\DomainMappingFileDriverDecorator
     arguments: ['@doctrine.mapping.driver.domain.inner']

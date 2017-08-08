@@ -17,11 +17,11 @@ use Vainyl\Doctrine\Common\Exception\NoMetadataAliasException;
 use Vainyl\Doctrine\Common\Metadata\DoctrineDomainMetadataInterface;
 
 /**
- * Class AliasMappingFileDriverDecorator
+ * Class DomainMappingFileDriverDecorator
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-class AliasMappingFileDriverDecorator extends AbstractDoctrineFileDriverDecorator
+class DomainMappingFileDriverDecorator extends AbstractDoctrineFileDriverDecorator
 {
     /**
      * @param string                          $className
