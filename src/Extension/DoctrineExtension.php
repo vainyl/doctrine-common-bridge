@@ -49,7 +49,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
         $container->setAlias('doctrine.cache', 'doctrine.cache.' . $doctrineConfig['cache']);
 
         $container->findDefinition('doctrine.settings')
-                  ->replaceArgument(1, $configuration['driver'])
+                  ->replaceArgument(1, $doctrineConfig['driver'])
                   ->replaceArgument(2, $doctrineConfig['paths']);
 
         return $this;
