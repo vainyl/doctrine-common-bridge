@@ -39,5 +39,12 @@ class DomainMappingFileDriverDecorator extends AbstractDoctrineFileDriverDecorat
         }
 
         $metadata->setAlias($element['alias']);
+
+        $element = $this->getElement($className);
+        if (!isset($element['scenarios'])) {
+            throw new NoMetadataAliasException($this, $className);
+        }
+
+        $metadata->setScenarios($element['scenarios']);
     }
 }
