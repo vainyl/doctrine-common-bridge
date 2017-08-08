@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Vainyl\Doctrine\Common\Extension;
 
+use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Vainyl\Core\Exception\MissingRequiredServiceException;
 use Vainyl\Core\Extension\AbstractExtension;
@@ -32,7 +33,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
         return [
             [new DoctrineConnectionCompilerPass()],
             [new DoctrineManagerCompilerPass()],
-            [new DoctrineMappingDriverDecoratorCompilerPass()],
+            [new DoctrineMappingDriverDecoratorCompilerPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1],
         ];
     }
 
