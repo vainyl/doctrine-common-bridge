@@ -29,7 +29,11 @@ class DoctrineExtension extends AbstractFrameworkExtension
      */
     public function getCompilerPasses(): array
     {
-        return [new DoctrineConnectionCompilerPass(), new DoctrineManagerCompilerPass()];
+        return [
+            new DoctrineConnectionCompilerPass(),
+            new DoctrineManagerCompilerPass(),
+            new DoctrineDecoratorCompilerPass(),
+        ];
     }
 
     /**
