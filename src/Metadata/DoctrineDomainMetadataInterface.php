@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Metadata;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+use Vainyl\Domain\Scenario\ScenarioInterface;
 
 /**
  * Interface DoctrineDomainMetadataInterface
@@ -34,4 +35,14 @@ interface DoctrineDomainMetadataInterface extends ClassMetadata
      * @return DoctrineDomainMetadataInterface
      */
     public function setScenarios(array $scenarios) : DoctrineDomainMetadataInterface;
+
+    /**
+     * @return string
+     */
+    public function getAlias() : string;
+
+    /**
+     * @return ScenarioInterface[]
+     */
+    public function getScenarios() : array;
 }
