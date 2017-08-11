@@ -39,10 +39,11 @@ class DomainMappingFileDriverDecorator extends AbstractDoctrineFileDriverDecorat
         } else {
             $metadata->getDomainMetadata()->setAlias(strtolower((new \ReflectionClass($className))->getShortName()));
         }
-
-        $element = $this->getElement($className);
         if (isset($element['scenarios'])) {
             $metadata->getDomainMetadata()->setScenarios($element['scenarios']);
+        }
+        if (isset($element['primary']) && false === $element['primary']) {
+            $metadata->getDomainMetadata()->setSecondary();
         }
     }
 }
