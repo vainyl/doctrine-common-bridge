@@ -13,13 +13,14 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Exception;
 
 use Doctrine\Common\Persistence\Mapping\Driver\FileDriver;
+use Vainyl\Core\Exception\CoreExceptionInterface;
 
 /**
  * Interface FileDriverExceptionInterface
  *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
-interface FileDriverExceptionInterface extends \Throwable
+interface FileDriverExceptionInterface extends CoreExceptionInterface
 {
     /**
      * @return FileDriver

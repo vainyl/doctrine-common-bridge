@@ -30,9 +30,9 @@ abstract class AbstractFileDriverException extends AbstractCoreException impleme
      * @param FileDriver      $driver
      * @param string          $message
      * @param int             $code
-     * @param \Exception|null $previous
+     * @param \Throwable|null $previous
      */
-    public function __construct(FileDriver $driver, string $message, int $code = 500, \Exception $previous = null)
+    public function __construct(FileDriver $driver, string $message, int $code = 500, \Throwable $previous = null)
     {
         $this->driver = $driver;
         parent::__construct($message, $code, $previous);
