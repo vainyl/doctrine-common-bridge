@@ -32,7 +32,14 @@ class DoctrineConfiguration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('cache')->defaultValue('apcu')->end()
+                ->arrayNode('cache')
+                    ->children()
+                        ->scalarNode('driver')->defaultValue('apcu')->end()
+                        ->arrayNode('options')
+                            ->prototype('variable')->end()
+                            ->defaultValue([])
+                        ->end()
+                ->end()
                 ->scalarNode('driver')->defaultValue('yaml')->end()
                 ->arrayNode('paths')
                     ->prototype('array')
