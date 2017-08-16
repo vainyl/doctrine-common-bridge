@@ -1,7 +1,7 @@
 services:
   doctrine.settings:
     class: Vainyl\Doctrine\Common\DoctrineSettings
-    arguments: ['@doctrine.cache.memory', 'yaml', []]
+    arguments: ['@doctrine.cache', 'yaml', []]
   doctrine.event.manager:
     class: Doctrine\Common\EventManager
   doctrine.registry:
