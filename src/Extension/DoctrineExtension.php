@@ -76,7 +76,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
         $container->setDefinition('doctrine.cache', new Definition($class, $arguments));
 
         $container->findDefinition('doctrine.settings')
-                  ->replaceArgument(1, $doctrineConfig['driver'])
+                  ->replaceArgument(1, $doctrineConfig['config']['driver'])
                   ->replaceArgument(2, $doctrineConfig['paths']);
 
         return $this;
