@@ -67,7 +67,7 @@ class DoctrineExtension extends AbstractFrameworkExtension
                 break;
             case 'redis':
                 $class = DoctrineRedisCache::class;
-                $arguments = [new Reference('@database.' . $doctrineConfig['cache']['options']['database'])];
+                $arguments = [new Reference('cache.' . $doctrineConfig['cache']['options']['name'])];
                 break;
             default:
                 throw new UnknownCacheDriverException($container, $doctrineConfig['cache']);
