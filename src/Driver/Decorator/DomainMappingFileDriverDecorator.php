@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Driver\Decorator;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Vainyl\Doctrine\Common\Exception\NoMetadataAliasException;
 use Vainyl\Doctrine\Common\Metadata\DoctrineDomainMetadataInterface;
 
 /**
@@ -26,8 +25,6 @@ class DomainMappingFileDriverDecorator extends AbstractDoctrineFileDriverDecorat
     /**
      * @param string                          $className
      * @param DoctrineDomainMetadataInterface $metadata
-     *
-     * @throws NoMetadataAliasException
      */
     public function loadMetadataForClass($className, ClassMetadata $metadata)
     {

@@ -17,6 +17,8 @@ use Doctrine\Common\Persistence\Mapping\Driver\FileDriver;
 /**
  * Class NoMetadataAliasException
  *
+ * @deprecated Not used
+ *
  * @author Taras P. Girnyk <taras.p.gyrnik@gmail.com>
  */
 class NoMetadataAliasException extends AbstractFileDriverException
