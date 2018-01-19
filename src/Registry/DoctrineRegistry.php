@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Vainyl\Doctrine\Common\Registry;
 
 use Doctrine\Common\Persistence\AbstractManagerRegistry;
+use Doctrine\Common\Proxy\Proxy;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -34,7 +35,7 @@ class DoctrineRegistry extends AbstractManagerRegistry
     public function __construct(ContainerInterface $container, array $connections = [], array $managers = [])
     {
         $this->container = $container;
-        parent::__construct('registry', $connections, $managers, null, null, '');
+        parent::__construct('registry', $connections, $managers, null, null, Proxy::class);
     }
 
     /**
